@@ -21,6 +21,8 @@
         [Browsable(false)]
         public MouseState MouseState { get; set; }
 
+        public bool UseAccentColor { get; set; }
+        
         protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
         {
             base.SetBoundsCore(x, y, width, 5, specified);
@@ -29,10 +31,23 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             var doneProgress = (int)(Width * ((double)Value / Maximum));
-            e.Graphics.FillRectangle(Enabled ? 
-                SkinManager.ColorScheme.PrimaryBrush :
-                new SolidBrush(DrawHelper.BlendColor(SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197)),
-                0, 0, doneProgress, Height);
+            brush b = null;
+            if ( Enabled )
+            {
+                if ( UseAccentColor )
+                {
+                    b = SkinManager.ColorScheme.AccentBrush;
+                }
+                else
+                {
+                    b = SkinManager.ColorScheme.PrimaryBrush;
+                }
+            }
+            else
+            {
+                b = new SolidBrush( DrawHelper.BlendColor( SkinManager.ColorScheme.PrimaryColor, SkinManager.SwitchOffDisabledThumbColor, 197 ) );
+            }
+            e.Graphics.FillRectangle(b, 0, 0, doneProgress, Height);
             e.Graphics.FillRectangle(SkinManager.BackgroundFocusBrush, doneProgress, 0, Width - doneProgress, Height);
         }
     }
