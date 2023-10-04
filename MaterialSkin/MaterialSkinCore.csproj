@@ -8,15 +8,15 @@
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
       <AssemblyName>MaterialSkin</AssemblyName>
       <RootNamespace>$(AssemblyName)</RootNamespace>
-      <PackageId>MaterialSkin.2</PackageId>
-      <Version>2.3.1</Version>
+      <PackageId>MaterialSkinKR</PackageId>
+      <Version>1.0.0</Version>
       <Product>MaterialSkin 2</Product>
-      <Authors>leocb, IgnaceMaes, orapps44</Authors>
+      <Authors>leocb, IgnaceMaes, orapps44, byungmeo</Authors>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <RepositoryUrl>https://github.com/leocb/MaterialSkin</RepositoryUrl>
+      <RepositoryUrl>https://github.com/byungmeo/MaterialSkinKR</RepositoryUrl>
       <PackageIcon>nugetIcon.png</PackageIcon>
       <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-      <Description>Google's Material Design for your windows forms. MaterialSkin 2 is a Google's Material Design skin for you windows forms app. This updated version brings new user controls, unified theming and consistency. This package supersedes the MaterialSkin package By IgnaceMaes. Example app and documentation is available on the project site.</Description>
+      <Description>MaterialSkin 2 changed to a Korean-compatible font</Description>
       <PackageReleaseNotes>See GitHub page for release notes.</PackageReleaseNotes>
       <Copyright>Copyright Leonardo C Bottaro © 2021</Copyright>
       <PackageTags>material design materialdesign google forms theme skin</PackageTags>
