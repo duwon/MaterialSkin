@@ -165,27 +165,20 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roboto-Regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roboto-Medium.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roboto-Bold.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roboto-Black.ttf" />
-    <EmbeddedResource Include="Resources\Roboto-Light.ttf" />
-    <EmbeddedResource Include="Resources\Roboto-Thin.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="Resources\NotoSansKR-Black.ttf" />
+    <EmbeddedResource Include="Resources\NotoSansKR-Bold.ttf" />
+    <EmbeddedResource Include="Resources\NotoSansKR-Light.ttf" />
+    <EmbeddedResource Include="Resources\NotoSansKR-Medium.ttf" />
+    <EmbeddedResource Include="Resources\NotoSansKR-Regular.ttf" />
+    <EmbeddedResource Include="Resources\NotoSansKR-Thin.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
