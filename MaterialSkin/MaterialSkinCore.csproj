@@ -9,7 +9,7 @@
       <AssemblyName>MaterialSkin</AssemblyName>
       <RootNamespace>$(AssemblyName)</RootNamespace>
       <PackageId>MaterialSkinKR</PackageId>
-      <Version>1.0.0</Version>
+      <Version>1.0.1</Version>
       <Product>MaterialSkin 2</Product>
       <Authors>leocb, IgnaceMaes, orapps44, byungmeo</Authors>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -105,10 +105,7 @@
     <ItemGroup>
 		<EmbeddedResource Include="Resources\NotoSansKR-Regular.ttf" />
 		<EmbeddedResource Include="Resources\NotoSansKR-Medium.ttf" />
-		<EmbeddedResource Include="Resources\NotoSansKR-Bold.ttf" />
-		<EmbeddedResource Include="Resources\NotoSansKR-Black.ttf" />
 		<EmbeddedResource Include="Resources\NotoSansKR-Light.ttf" />
-		<EmbeddedResource Include="Resources\NotoSansKR-Thin.ttf" />
     </ItemGroup>
     <ItemGroup>
       <Compile Remove="Controls\MaterialMenuStrip.cs" />

@@ -63,26 +63,6 @@ namespace MaterialSkin.Properties {
         /// <summary>
         ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static byte[] NotoSansKR_Black {
-            get {
-                object obj = ResourceManager.GetObject("NotoSansKR_Black", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        public static byte[] NotoSansKR_Bold {
-            get {
-                object obj = ResourceManager.GetObject("NotoSansKR_Bold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         public static byte[] NotoSansKR_Light {
             get {
                 object obj = ResourceManager.GetObject("NotoSansKR_Light", resourceCulture);
@@ -106,16 +86,6 @@ namespace MaterialSkin.Properties {
         public static byte[] NotoSansKR_Regular {
             get {
                 object obj = ResourceManager.GetObject("NotoSansKR_Regular", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        public static byte[] NotoSansKR_Thin {
-            get {
-                object obj = ResourceManager.GetObject("NotoSansKR_Thin", resourceCulture);
                 return ((byte[])(obj));
             }
         }

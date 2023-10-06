@@ -42,12 +42,9 @@
             // And https://www.codeproject.com/Articles/107376/Embedding-Font-To-Resources
 
             // Add font to system table in memory and save the font family
-            addFont(Resources.NotoSansKR_Thin);
             addFont(Resources.NotoSansKR_Light);
             addFont(Resources.NotoSansKR_Regular);
             addFont(Resources.NotoSansKR_Medium);
-            addFont(Resources.NotoSansKR_Bold);
-            addFont(Resources.NotoSansKR_Black);
 
             RobotoFontFamilies = new Dictionary<string, FontFamily>();
             foreach (FontFamily ff in privateFontCollection.Families.ToArray())
