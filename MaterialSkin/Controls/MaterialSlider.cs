@@ -255,10 +255,10 @@ namespace MaterialSkin.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (_valueMax != 0 && (Value + e.Delta / -40) > _valueMax)
+            if (_valueMax != 0 && (Value + e.Delta / 40) > _valueMax)
                 Value = _valueMax;
             else
-                Value += e.Delta/-40;
+                Value += e.Delta / 40;
             onValueChanged?.Invoke(this, _value);
         }
 
