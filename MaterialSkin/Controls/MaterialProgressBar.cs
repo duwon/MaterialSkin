@@ -31,7 +31,7 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             var doneProgress = (int)(Width * ((double)Value / Maximum));
-            brush b = null;
+            Brush b = null;
             if ( Enabled )
             {
                 if ( UseAccentColor )
