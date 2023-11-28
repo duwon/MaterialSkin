@@ -8,8 +8,10 @@ namespace MaterialSkin.Controls
 {
     public class MaterialSlider : Control, IMaterialControl
     {
-        #region "Private members"
-        private bool _mousePressed;
+		public enum Directions { Normal, Reverse }
+
+		#region "Private members"
+		private bool _mousePressed;
         private int _mouseX;
         //private int _indicatorSize;
         private bool _hovered = false;
@@ -182,12 +184,26 @@ namespace MaterialSkin.Controls
             }
         }
 
+		protected int _stepChange;
+		[DefaultValue(2)]
+		[Category("Material Skin")]
+		[Description("Define control step change value")]
+		public int StepChange
+		{
+			get => _stepChange;
+			set => _stepChange = value.Clamp(1, RangeMax);
+		}
 
-        #endregion
+		[DefaultValue(Directions.Normal)]
+		[Category("Material Skin")]
+		[Description("Define control direction change value with mouse wheel")]
+		public Directions ScrollDirection { get; set; }
 
-        #region "Events"
+		#endregion
 
-        [Category("Behavior")]
+		#region "Events"
+
+		[Category("Behavior")]
         [Description("Occurs when value change.")]
         public delegate void ValueChanged(object sender, int newValue);
         public event ValueChanged onValueChanged;
@@ -255,14 +271,13 @@ namespace MaterialSkin.Controls
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            if (_valueMax != 0 && (Value + e.Delta / -40) > _valueMax)
-                Value = _valueMax;
-            else
-                Value += e.Delta/-40;
-            onValueChanged?.Invoke(this, _value);
+			int scrollLines = SystemInformation.MouseWheelScrollLines;
+			Value += e.Delta / 40 / scrollLines * StepChange * (ScrollDirection == Directions.Normal ? 1 : -1);
+			Value = Value.Clamp(RangeMin, RangeMax);
+			onValueChanged?.Invoke(this, _value);
         }
 
-        protected override void OnMouseEnter(EventArgs e)
+        protected override void OnMouseEnter(EventArgs e)   
         {
             base.OnMouseEnter(e);
             _hovered = true;
