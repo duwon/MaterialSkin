@@ -1171,6 +1171,57 @@ namespace MaterialSkin.Controls
                        _drawerIconRect.Y + (int)(ACTION_BAR_HEIGHT / 2) + 6);
                 }
             }
+            else if (DrawerTabControl != null && _formStyle == FormStyles.ActionBar_None)
+            {
+                _drawerIconRect = new Rectangle(SkinManager.FORM_PADDING / 4, 0, STATUS_BAR_HEIGHT_DEFAULT + 10, STATUS_BAR_HEIGHT + 10);
+
+                if (_buttonState == ButtonState.DrawerOver)
+                    g.FillRectangle(hoverBrush, _drawerIconRect);
+
+                if (_buttonState == ButtonState.DrawerDown)
+                    g.FillRectangle(downBrush, _drawerIconRect);
+
+                // Ripple
+                if (_clickAnimManager.IsAnimating())
+                {
+                    var clickAnimProgress = _clickAnimManager.GetProgress();
+
+                    var rippleBrush = new SolidBrush(Color.FromArgb((int)(51 - (clickAnimProgress * 50)), Color.White));
+                    var rippleSize = (int)(clickAnimProgress * _drawerIconRect.Width * 1.75);
+
+                    g.SetClip(_drawerIconRect);
+                    g.FillEllipse(rippleBrush, new Rectangle(_animationSource.X - rippleSize / 2, _animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
+                    g.ResetClip();
+                    rippleBrush.Dispose();
+                }
+
+                using (var formButtonsPen = new Pen(SkinManager.ColorScheme.TextColor, 2))
+                {
+                    // Middle line
+                    g.DrawLine(
+                       formButtonsPen,
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2),
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 14,
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2));
+
+                    // Bottom line
+                    g.DrawLine(
+                       formButtonsPen,
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2) - 4,
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 14,
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2) - 4);
+
+                    // Top line
+                    g.DrawLine(
+                       formButtonsPen,
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING),
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2) + 4,
+                       _drawerIconRect.X + (int)(SkinManager.FORM_PADDING) + 14,
+                       _drawerIconRect.Y + (int)(STATUS_BAR_HEIGHT / 2) + 4);
+                }
+            }
 
             if (ControlBox == true && _formStyle != FormStyles.ActionBar_None && _formStyle != FormStyles.StatusAndActionBar_None)
             {
@@ -1181,6 +1232,19 @@ namespace MaterialSkin.Controls
                     NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.H6),
                         SkinManager.ColorScheme.TextColor,
                         textLocation.Location,
+                        textLocation.Size,
+                        NativeTextRenderer.TextAlignFlags.Left | NativeTextRenderer.TextAlignFlags.Middle);
+                }
+            }
+            else if(ControlBox == true && _formStyle == FormStyles.ActionBar_None)
+            {
+                //Form title
+                using (NativeTextRenderer NativeText = new NativeTextRenderer(g))
+                {
+                    Rectangle textLocation = new Rectangle(DrawerTabControl != null ? TITLE_LEFT_PADDING - 30 : TITLE_LEFT_PADDING - (ICON_SIZE + (ACTION_BAR_PADDING * 2)), 0, ClientSize.Width, STATUS_BAR_HEIGHT);
+                    NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body2),
+                        SkinManager.ColorScheme.TextColor,
+                        new Point(textLocation.Location.X, textLocation.Location.Y),
                         textLocation.Size,
                         NativeTextRenderer.TextAlignFlags.Left | NativeTextRenderer.TextAlignFlags.Middle);
                 }
